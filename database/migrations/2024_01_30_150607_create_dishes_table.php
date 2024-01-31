@@ -16,7 +16,7 @@ return new class extends Migration
             $table->unsignedBigInteger('restaurant_id');
             $table->foreign('restaurant_id')->references('id')->on('restaurants');
             $table->string('name');
-            $table->string('image');
+            $table->string('image')->nullable();
             $table->text('description');
             $table->decimal('price', 4, 2);
             $table->tinyInteger('visibility')->unsigned()->default(1);
