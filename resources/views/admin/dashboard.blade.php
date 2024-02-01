@@ -48,6 +48,7 @@
     <section class="dish-tools py-3">
         <div class="container">
             <a class="btn btn-primary" href="{{route('admin.dishes.create')}}">Aggiungi piatto</a>
+            <a class="btn btn-success"href="{{ route('admin.dishes.index') }}">Lista piatti</a>
         </div>
     </section>
     @endif
