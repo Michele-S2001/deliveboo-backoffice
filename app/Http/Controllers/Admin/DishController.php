@@ -5,8 +5,10 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Dish;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\Admin\StoreDishRequest;
 use App\Http\Requests\Admin\UpdateDishRequest;
+use Illuminate\Support\Facades\Auth;
 
 class DishController extends Controller
 {
@@ -31,7 +33,20 @@ class DishController extends Controller
      */
     public function store(StoreDishRequest $request)
     {
-        dd($request);
+        $data = $request->validated();
+
+        //salviamo l'immagine del piatto
+        $img_path = Storage::put('uploads', $data['image']);
+        $data['image'] = $img_path;
+
+        //recuperiamo l'id del ristorante appartenente all'utente
+        $restaurant_id = Auth::user()->restaurant->id;
+        $data['restaurant_id'] = $restaurant_id;
+
+        //salviamo il piatto
+        Dish::create($data);
+
+        return redirect()->route('admin.dashboard');
     }
 
     /**
