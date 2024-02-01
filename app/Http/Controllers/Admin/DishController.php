@@ -73,7 +73,16 @@ class DishController extends Controller
      */
     public function update(UpdateDishRequest $request, Dish $dish)
     {
-        //
+        $data = $request -> validated ();
+
+        if ($request -> has('image')) {
+            Storage::delete($dish -> image);
+            $img_path = Storage::put('uploads', $data['image']);
+            $data['image'] = $img_path;
+        }
+        $dish -> update($data);
+
+        return redirect () -> route ('admin.dishes.index');
     }
 
     /**
