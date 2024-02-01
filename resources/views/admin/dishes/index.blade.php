@@ -6,7 +6,7 @@
         <h2 class="mb-5">Lista Piatti</h2>
         <div class="row">
            @foreach($dishes as $dish)
-           <div class="col-md-6 col-lg-3 mb-4">
+           <div class="col-md-6 col-lg-4 mb-4">
                 <div class="card">
                     <img class="card__image-dish" src="{{ asset('storage/' . $dish->image ) }}" class="card-img-top" alt="{{ $dish->name }}">
                     <div class="card-body">
@@ -22,7 +22,7 @@
                             </form>
                         </div>
                     </div>
-                    
+
                 </div>
             </div>
             @endforeach

@@ -45,11 +45,15 @@
     </section>
 
     @if(Auth::user()->restaurant)
-    <section class="dish-tools py-3">
-        <div class="container">
-            <a class="btn btn-primary" href="{{route('admin.dishes.create')}}">Aggiungi piatto</a>
-            <a class="btn btn-success"href="{{ route('admin.dishes.index') }}">Lista piatti</a>
-        </div>
-    </section>
+        <section class="dish-tools py-3">
+            <div class="container">
+                <a class="btn btn-primary" href="{{route('admin.dishes.create')}}">Aggiungi piatto</a>
+
+                {{-- se l'utente con un ristorante ha anche dei piatti --}}
+                @if(Auth::user()->restaurant->dishes->isNotEmpty())
+                    <a class="btn btn-success"href="{{ route('admin.dishes.index') }}">Lista piatti</a>
+                @endif
+            </div>
+        </section>
     @endif
 @endsection
