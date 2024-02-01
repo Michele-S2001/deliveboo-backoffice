@@ -26,11 +26,18 @@ class OrderSeeder extends Seeder
             'Francesco Totti'];
 
         for ($i = 0; $i < count($orders_name); $i++) {
+
             // Qui prendiamo un id random tra quelli dei ristoranti
             $current_restaurant_id = $faker -> randomElement($restaurants_ids);
+
             // Recuperiamo QUALCOSA 😂 l'istanza del ristorante tramite id
             $current_restaurant = Restaurant::find($current_restaurant_id);
+
+            // Recuperiamo gli id dei piatti appartenenti al current_restaurant
             $dish_ids = $current_restaurant -> dishes->pluck('id');
+
+            // Prendiamo un numero random tra gli id dei piatti
+            $dish_ids = $faker->randomElements($dish_ids, null);
 
             $new_order = new Order ([
                 'full_name' => $orders_name[$i],
@@ -51,9 +58,7 @@ class OrderSeeder extends Seeder
 
             $new_order->subtotal = $total;
             $new_order->save();
-
-            // Collega i piatti all'ordine dopo averlo salvato
-            $new_order->dishes()->attach($dish_ids, ['quantity' => $quantity]);
+            $new_order->dishes()->attach($dish_id, ['quantity' => $quantity]);
         }
     }
 
