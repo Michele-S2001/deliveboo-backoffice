@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Dish extends Model
 {
     use HasFactory;
-// relation between dish and restaurant
+    // relation between dish and restaurant
     public function restaurant (){
         return $this->belongsTo(Restaurant::class);
     }
@@ -16,4 +16,13 @@ class Dish extends Model
     public function orders (){
         return $this->belongsToMany(Order::class)->withPivot('quantity');
     }
+
+    protected $fillable = [
+        'name',
+        'image',
+        'price',
+        'description',
+        'restaurant_id',
+        'visibility'
+    ];
 }

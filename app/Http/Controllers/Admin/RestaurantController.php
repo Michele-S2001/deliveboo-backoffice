@@ -28,7 +28,7 @@ class RestaurantController extends Controller
     public function store(StoreRestaurantRequest $request)
     {
         $data = $request -> validated ();
-        
+
         // Salviamo le immagini
         $img_path = Storage::put ('uploads', $data ['thumb']);
         $data['thumb'] = $img_path;
@@ -37,14 +37,14 @@ class RestaurantController extends Controller
         //Recuperiamo utente autenticato
         $user = Auth::user();
         $data['user_id'] = $user -> id;
-        
+
         //Salviamo il ristorante
         $new_restaurant = Restaurant::create($data);
         $new_restaurant -> categories() -> attach ($data ['categories']);
 
         return redirect() -> route('admin.dashboard');
     }
-    
+
     /**
      * Remove the specified resource from storage.
      */
