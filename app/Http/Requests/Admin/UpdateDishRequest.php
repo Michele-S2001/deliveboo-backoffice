@@ -11,7 +11,7 @@ class UpdateDishRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,11 @@ class UpdateDishRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'name' => 'required|string|max:200',
+            'image' => 'file|mimes:jpg,jpeg,png,svg,tmp|max:15000',
+            'description' => 'required|string|min:10|max:5000',
+            'price' => 'required|decimal:2|min:1.00|max:99.99',
+            'visibility' => 'boolean'
         ];
     }
 }
