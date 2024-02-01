@@ -26,8 +26,8 @@ class StoreRestaurantRequest extends FormRequest
             'thumb' => 'required|file|mimes:jpg,jpeg,png,svg,tmp|max:15000',
             'address' => 'required|string|max:200',
             // verificare lunghezza partita iva
-            'vat' => 'required|string|min:9|max:15' 
-            // 'email' => 'required|string|email|max:200',
+            'vat' => 'required|string|min:9|max:15',
+            'categories' => 'required|exists:categories,id',
         ];
     }
 }

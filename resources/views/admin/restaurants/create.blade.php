@@ -15,7 +15,7 @@
                         </ul>
                     </div>
                 @endif
-                <form action="{{ route('admin.restaurants.store')}}" method='POST' class="py-4">
+                <form action="{{ route('admin.restaurants.store')}}" method='POST' class="py-4" enctype="multipart/form-data">
                     @csrf
                     {{-- name --}}
                     <div class="mb-3">
@@ -26,6 +26,24 @@
                     <div class="mb-3">
                         <label for="thumb" class="form-label">Inserisci un'immagine</label>
                         <input type="file" name="thumb" class="form-control" id="thumb" placeholder="Inserisci la foto del ristorante.."  value="{{ old('file')}}">
+                    </div>
+                    {{-- categories --}}
+                    <div class="mb-3 d-flex gap-3 flex-wrap">
+                        <h4> Select one or more categories </h4>
+                        <div class="d-flex gap-3 flex-wrap">
+                            @foreach($categories as $category)
+                                <input
+                                    name="categories[]"
+                                    class="form-check-input"
+                                    type="checkbox" value="{{$category->id}}"
+                                    id="item-{{$category->id}}"
+                                    @checked(in_array($category->id, old('categories', [])))
+                                >
+                                <label class="form-check-label" for="item-{{$category->id}}">
+                                    {{$category->name}}
+                                </label>
+                            @endforeach
+                        </div>
                     </div>
                     {{-- address --}}
                     <div class="mb-3">
