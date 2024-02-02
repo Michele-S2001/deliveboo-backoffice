@@ -48,21 +48,24 @@
                     {{-- visibility --}}
                     <div class="mb-3">
                         <div class="form-check">
-                            <input required class="form-check-input" type="checkbox" value="1" id="visibility" name="visibility" @checked($dish->visibility === 1)>
+                            <input class="form-check-input" type="checkbox" value="1" id="visibility" name="visibility" @checked($dish->visibility === 1)>
                             <label class="form-check-label" for="visibility">
                               Visibilità ai clienti
                             </label>
                         </div>
                     </div>
 
-                    {{-- btn --}}
-                    <div class="mb-3">
-                        <input type="submit" value="Salva" class="btn btn-primary">
+                    <div class="d-flex gap-3">
+                        {{-- btn --}}
+                        <div class="mb-3">
+                            <input type="submit" value="Salva" class="btn btn-primary">
+                        </div>
+                         {{-- btn indietro --}}
+                         <div class="mb-3">
+                            <a class="btn btn-secondary" href=" {{route ('admin.dishes.index') }}">Indietro</a>
+                        </div>
                     </div>
-                     {{-- btn indietro --}}
-                     <div class="mb-3">
-                        <a class="btn btn-secondary" href=" {{route ('admin.dishes.index') }}">Indietro</a>
-                    </div>
+
                 </form>
 
             </div>

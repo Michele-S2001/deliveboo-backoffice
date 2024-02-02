@@ -13,12 +13,12 @@ return new class extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
-            $table->string('full_name');
-            $table->string('email');
-            $table->string('phone_number');
-            $table->string('delivery_address');
+            $table->string('full_name', 200);
+            $table->string('email', 200);
+            $table->string('phone_number', 200);
+            $table->string('delivery_address', 200);
             $table->text('notes')->nullable();
-            $table->decimal('subtotal', 5, 2);
+            $table->decimal('subtotal', 5, 2)->unsigned();
             $table->unsignedTinyInteger('payment_status');
             $table->timestamps();
         });
