@@ -16,7 +16,7 @@ return new class extends Migration
             $table->unsignedBigInteger('dish_id');
             $table->unsignedBigInteger('order_id');
 
-            $table->unsignedTinyInteger('quantity');            
+            $table->unsignedTinyInteger('quantity');
 
             $table->foreign('dish_id')
                 ->references('id')
