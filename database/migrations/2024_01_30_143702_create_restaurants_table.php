@@ -16,10 +16,10 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
-            $table->string('name');
+            $table->string('name', 200);
             $table->string('slug')->unique();
             $table->string('thumb')->nullable();
-            $table->string('address');
+            $table->string('address', 200);
             $table->string('vat')->unique();
             $table->timestamps();
         });
@@ -29,7 +29,7 @@ return new class extends Migration
      * Reverse the migrations.
      */
     public function down(): void
-    {   
+    {
         Schema::dropIfExists('restaurants');
     }
 };
