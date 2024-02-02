@@ -54,15 +54,18 @@
                         </div>
                     </div>
 
-                    {{-- btn --}}
-                    <div class="mb-3">
-                        <input type="submit" value="Crea" class="btn btn-primary">
+                    <div class="d-flex gap-3">
+                        {{-- btn --}}
+                        <div class="mb-3">
+                            <input type="submit" value="Crea" class="btn btn-primary">
+                        </div>
+
+                        {{-- btn indietro --}}
+                        <div class="mb-3">
+                            <a class="btn btn-secondary" href=" {{route ('admin.dashboard') }}">Indietro</a>
+                        </div>
                     </div>
 
-                    {{-- btn indietro --}}
-                    <div class="mb-3">
-                        <a class="btn btn-secondary" href=" {{route ('admin.dashboard') }}">Indietro</a>
-                    </div>
                 </form>
 
             </div>

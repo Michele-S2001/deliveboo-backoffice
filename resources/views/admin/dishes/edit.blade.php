@@ -55,14 +55,17 @@
                         </div>
                     </div>
 
-                    {{-- btn --}}
-                    <div class="mb-3">
-                        <input type="submit" value="Salva" class="btn btn-primary">
+                    <div class="d-flex gap-3">
+                        {{-- btn --}}
+                        <div class="mb-3">
+                            <input type="submit" value="Salva" class="btn btn-primary">
+                        </div>
+                         {{-- btn indietro --}}
+                         <div class="mb-3">
+                            <a class="btn btn-secondary" href=" {{route ('admin.dishes.index') }}">Indietro</a>
+                        </div>
                     </div>
-                     {{-- btn indietro --}}
-                     <div class="mb-3">
-                        <a class="btn btn-secondary" href=" {{route ('admin.dishes.index') }}">Indietro</a>
-                    </div>
+
                 </form>
 
             </div>
