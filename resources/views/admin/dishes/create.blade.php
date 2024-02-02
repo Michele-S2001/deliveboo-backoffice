@@ -41,7 +41,7 @@
                     {{-- description --}}
                     <div class="mb-3">
                         <label for="description" class="form-label">Descrizione</label>
-                        <textarea required name="description" class="form-control" id="description" rows="3"></textarea>
+                        <textarea required name="description" class="form-control" id="description" rows="3"> {{ old('description') }} </textarea>
                     </div>
 
                     {{-- visibility --}}
