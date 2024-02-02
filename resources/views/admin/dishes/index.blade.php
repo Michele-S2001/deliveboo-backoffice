@@ -13,6 +13,7 @@
                         <h5 class="card-title"> {{  $dish->name }} </h5>
                         <p class="card-text"> {{ $dish->description }} </p>
                         <p class="card-text">Prezzo: {{ $dish->price }}</p>
+                        <p class="card-text">Visibilità al cliente: {{ $dish->visibility ? 'Si' : 'No'}} </p>
                         <div class="d-flex gap-3">
                             <a href="{{ route('admin.dishes.edit', $dish) }}" class="btn btn-primary">Modifica</a>
                             <form id="{{'form-'.$dish->id}}" action="{{route('admin.dishes.destroy', $dish)}}" method="POST">

@@ -48,7 +48,7 @@
                     {{-- visibility --}}
                     <div class="mb-3">
                         <div class="form-check">
-                            <input required class="form-check-input" type="checkbox" value="1" id="visibility" name="visibility" @checked($dish->visibility === 1)>
+                            <input class="form-check-input" type="checkbox" value="1" id="visibility" name="visibility" @checked($dish->visibility === 1)>
                             <label class="form-check-label" for="visibility">
                               Visibilità ai clienti
                             </label>

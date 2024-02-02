@@ -38,6 +38,10 @@ class DishController extends Controller
     {
         $data = $request->validated();
 
+        if(!$request->has('visibility')) {
+            $data['visibility'] = 0;
+        }
+
         //salviamo l'immagine del piatto
         $img_path = Storage::put('uploads', $data['image']);
         $data['image'] = $img_path;
@@ -73,7 +77,11 @@ class DishController extends Controller
      */
     public function update(UpdateDishRequest $request, Dish $dish)
     {
-        $data = $request -> validated ();
+        $data = $request -> validated();
+
+        if(!$request->has('visibility')) {
+            $data['visibility'] = 0;
+        }
 
         if ($request -> has('image')) {
             Storage::delete($dish -> image);
@@ -82,7 +90,7 @@ class DishController extends Controller
         }
         $dish -> update($data);
 
-        return redirect () -> route ('admin.dishes.index');
+        return redirect()->route('admin.dishes.index');
     }
 
     /**
@@ -90,6 +98,7 @@ class DishController extends Controller
      */
     public function destroy(Dish $dish)
     {
+        Storage::delete($dish->image);
         $dish->delete();
         return redirect()->route('admin.dishes.index');
     }
