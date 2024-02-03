@@ -23,7 +23,7 @@ class UserSeeder extends Seeder
             ],
             [
                 'name' => 'Michele Serafini',
-                'email' => 'micheleserafini@gmail.com',
+                'email' => 'serafini.michele01@gmail.com',
                 'password' => 'admin1234',
             ],
             [
@@ -32,7 +32,7 @@ class UserSeeder extends Seeder
                 'password' => 'admin1234',
             ],
 
-            
+
         ];
         foreach ($users as &$user) {
             $user['password'] = Hash::make($user['password']);

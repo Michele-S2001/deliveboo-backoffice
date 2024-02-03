@@ -26,11 +26,13 @@ class OrderSeeder extends Seeder
             'Francesco Totti'];
 
         for ($i = 0; $i < count($orders_name); $i++) {
-            // Qui prendiamo un id random tra quelli dei ristoranti
-            $current_restaurant_id = $faker -> randomElement($restaurants_ids);
-            // Recuperiamo QUALCOSA 😂 l'istanza del ristorante tramite id
-            $current_restaurant = Restaurant::find($current_restaurant_id);
-            $dish_ids = $current_restaurant -> dishes->pluck('id');
+
+            // Recuperiamo l'istanza del ristorante tramite id
+            $current_restaurant = Restaurant::find($faker->randomElement($restaurants_ids));
+
+            // Prendo un numero casuale tra gli id dei piatti associati
+            $all_dish_ids = $current_restaurant->dishes->pluck('id');
+            $rdm_dish_ids = $faker->randomElements($all_dish_ids, null);
 
             $new_order = new Order ([
                 'full_name' => $orders_name[$i],
@@ -43,17 +45,25 @@ class OrderSeeder extends Seeder
             ]);
 
             $total = 0;
+            $quantities = [];
 
-            foreach ($dish_ids as $dish_id) {
+            foreach ($rdm_dish_ids as $dish_id) {
                 $quantity = $faker->numberBetween(1, 4);
+                array_push($quantities, $quantity);
                 $total += Dish::find($dish_id)->price * $quantity;
             }
 
             $new_order->subtotal = $total;
             $new_order->save();
 
-            // Collega i piatti all'ordine dopo averlo salvato
-            $new_order->dishes()->attach($dish_ids, ['quantity' => $quantity]);
+            /**
+             * relazione 'ordine-id' - 'piatto-id' - 'quantità'
+             */
+            for($i = 0; $i < count($rdm_dish_ids); $i++) {
+                $currDishId = $rdm_dish_ids[$i];
+                $currQuantity = $quantities[$i];
+                $new_order->dishes()->attach($currDishId, ['quantity' => $currQuantity]);
+            }
         }
     }
 

@@ -4,8 +4,8 @@
 @section('content')
 
     <div class="container">
-        <div class="row justify-center">
-            <div class="col-8"> 
+        <div class="row justify-content-center">
+            <div class="col-8">
                 @if ($errors->any())
                     <div class="alert alert-danger">
                         <ul>
@@ -60,7 +60,7 @@
                         <input type="submit" value="Crea" class="btn btn-primary">
                     </div>
                 </form>
-                
+
             </div>
         </div>
     </div>

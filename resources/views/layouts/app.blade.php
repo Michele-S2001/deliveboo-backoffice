@@ -25,10 +25,6 @@
 
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm bg-orange" id="nav-color">
             <div class="container">
-                <a class="navbar-brand d-flex align-items-center" href="{{ url('/') }}">
-                    {{-- config('app.name', 'Laravel') --}}
-                </a>
-
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -37,7 +33,7 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="{{url('/') }}">{{ __('Home') }}</a>
+                            <a class="nav-link" href="http://localhost:5173">{{ __('Torna all\' app') }}</a>
                         </li>
                     </ul>
 
