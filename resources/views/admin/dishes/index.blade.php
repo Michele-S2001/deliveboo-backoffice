@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title-name', 'All dishes')
+@section('title-name', 'Tutti i piatti')
 
 @section('content')
     @if(Auth::user()->restaurant->dishes->isNotEmpty())

@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title-name', 'Add a dish')
+@section('title-name', 'Aggiungi un piatto al menù')
 
 @section('content')
 
