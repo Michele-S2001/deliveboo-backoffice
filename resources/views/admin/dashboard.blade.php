@@ -19,7 +19,7 @@
                             <a href="{{ route('admin.restaurants.create')}}">Aggiungi Ristorante</a>
                                 @else
                                 <div class="row">
-                                    <div class="col-6">
+                                    <div class="col-md-6">
                                         <h3>
                                             {{ Auth::user()->restaurant->name }}
                                         </h3>
@@ -33,7 +33,7 @@
                                             {{ Auth::user()->restaurant->category }}
                                         </p>
                                     </div>
-                                    <div class="col-6">
+                                    <div class="col-md-6">
                                         <img class="w-100" src="{{ asset('storage/' . Auth::user()->restaurant->thumb ) }}">
                                     </div>
                                 </div>
