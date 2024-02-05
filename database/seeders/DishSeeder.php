@@ -25,6 +25,7 @@ class DishSeeder extends Seeder
                     'name' => $faker -> sentence(2, true),
                     'description' => $faker -> paragraph(3),
                     'price' => $faker -> randomFloat(2, 4, 25),
+                    'image' => 'uploads/placeholder-img2.png',
                     'restaurant_id' => $restaurant,
                 ]);
 

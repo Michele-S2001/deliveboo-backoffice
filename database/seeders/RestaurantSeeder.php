@@ -83,7 +83,7 @@ class RestaurantSeeder extends Seeder
                 'address' => $restaurants[$i]['address'],
                 'vat' => $restaurants[$i]['vat'],
                 'user_id' => $users_ids[$i],
-                'thumb' => 'uploads/a2Ajt3H8sK4kmryfMIEjH4wQVH7zDccq1UoUXu9h.jpg',
+                'thumb' => 'uploads/cibo-nei-fast-food-qualità-peggiorata.jpg',
                 'slug' => Str::slug($restaurants[$i]['name']),
             ]);
 

@@ -8,14 +8,14 @@
             <div class="row">
             @foreach($dishes as $dish)
             <div class="col-md-6 col-lg-4 mb-4">
-                    <div class="card">
+                    <div class="card h-100">
                         <img class="card__image-dish" src="{{ asset('storage/' . $dish->image ) }}" class="card-img-top" alt="{{ $dish->name }}">
-                        <div class="card-body">
+                        <div class="card-body d-flex flex-column">
                             <h5 class="card-title"> {{  $dish->name }} </h5>
                             <p class="card-text"> {{ $dish->description }} </p>
                             <p class="card-text">Prezzo: {{ $dish->price }} &euro;</p>
                             <p class="card-text">Visibilità al cliente: {{ $dish->visibility ? 'Si' : 'No'}} </p>
-                            <div class="d-flex gap-3">
+                            <div class="d-flex gap-3 mt-auto">
                                 <a href="{{ route('admin.dishes.edit', $dish) }}" class="btn btn-primary">Modifica</a>
                                 <form id="{{'form-'.$dish->id}}" action="{{route('admin.dishes.destroy', $dish)}}" method="POST">
                                 @csrf
