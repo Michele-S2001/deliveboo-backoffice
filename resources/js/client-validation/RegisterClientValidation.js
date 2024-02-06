@@ -48,7 +48,7 @@ function showErrorAndHideAfterTimeoutEmail(errorSpan, errorArr, input, n) {
 function emailError() {
     const domainRegex = /@([^.]+)\./i;
     const domain2Regex = /\.([^.]+)$/i;
-    const uppercaseRegex = /^[a-z]+$/;
+    const uppercaseRegex = /^[^A-Z]*$/;
     const email = emailInput.value.trim();
 
     if(!uppercaseRegex.test(email)) {
