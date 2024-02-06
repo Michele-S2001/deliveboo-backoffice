@@ -22,13 +22,13 @@
                     {{-- name --}}
                     <div class="mb-3">
                         <label for="name" class="form-label">Nome del piatto</label>
-                        <input required type="text" name="name" class="form-control" id="name" placeholder="Inserisci il nome.." value="{{ old('name')}}">
+                        <input required type="text" name="name" class="form-control" id="name" placeholder="Nome.." value="{{ old('name')}}">
                     </div>
 
                     {{-- image --}}
                     <div class="mb-3">
-                        <label for="image" class="form-label">Inserisci un'immagine</label>
-                        <input required type="file" name="image" class="form-control" id="image" placeholder="Inserisci la foto del piatto.." value="{{ old('image')}}">
+                        <label for="image" class="form-label">Immagine</label>
+                        <input required type="file" name="image" class="form-control" id="image" placeholder="Foto del piatto.." value="{{ old('image')}}">
                     </div>
 
                     {{-- price --}}
@@ -51,7 +51,7 @@
                         <div class="form-check">
                             <input class="form-check-input" type="checkbox" value="1" id="visibility" name="visibility" checked>
                             <label class="form-check-label" for="visibility">
-                              Visibilità ai clienti
+                              Visibilità
                             </label>
                         </div>
                     </div>
@@ -59,7 +59,7 @@
                     <div class="d-flex gap-3">
                         {{-- btn --}}
                         <div class="mb-3">
-                            <input type="submit" value="Crea" class="btn btn-primary">
+                            <input type="submit" value="Salva" class="btn btn-primary">
                         </div>
 
                         {{-- btn indietro --}}

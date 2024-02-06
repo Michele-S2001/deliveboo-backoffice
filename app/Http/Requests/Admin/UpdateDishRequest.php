@@ -25,7 +25,7 @@ class UpdateDishRequest extends FormRequest
             'name' => 'required|string|max:200',
             'image' => 'file|mimes:jpg,jpeg,png,svg,tmp|max:15000',
             'description' => 'required|string|min:10|max:5000',
-            'price' => 'required|decimal:2|min:1.00|max:99.99',
+            'price' => 'required|decimal:2|min:0.01|max:99.99',
             'visibility' => 'boolean'
         ];
     }
