@@ -32,13 +32,11 @@
                     </div>
 
                     {{-- price --}}
-                    <div class="mb-3">
-                        <label class="form-label" for="price">Inserisci il prezzo del piatto</label>
+                    <div class=" mb-3">
+                        <label class="form-label" for="price"> Prezzo </label>
                         <div class="input-group">
                             <span class="input-group-text">&euro;</span>
                             <input required name="price" type="number" step="0.01" class="form-control" aria-label="Amount (to the nearest dollar)" value="{{old('price')}}">
-                            <span class="input-group-text">.00</span>
-
                         </div>
                     </div>
 
