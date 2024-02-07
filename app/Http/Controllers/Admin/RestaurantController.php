@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
+use App\Rules\UniqueRestaurantSlug;
 
 class RestaurantController extends Controller
 {
@@ -27,16 +28,21 @@ class RestaurantController extends Controller
      */
     public function store(StoreRestaurantRequest $request)
     {
+        $request->validate([
+            'slug' => [new UniqueRestaurantSlug],
+        ]);
         $data = $request -> validated ();
+        $data['slug'] = Str::slug($data['name']);
+        
 
         // Salviamo le immagini
         $img_path = Storage::put ('uploads', $data ['thumb']);
         $data['thumb'] = $img_path;
-        $data['slug'] = Str::slug($data['name']);
 
         //Recuperiamo utente autenticato
         $user = Auth::user();
         $data['user_id'] = $user -> id;
+
 
         //Salviamo il ristorante
         $new_restaurant = Restaurant::create($data);
