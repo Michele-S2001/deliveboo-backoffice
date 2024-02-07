@@ -69,7 +69,12 @@ class DishController extends Controller
      */
     public function edit(Dish $dish)
     {
-        return view('admin.dishes.edit', compact('dish'));
+
+        if (Auth::check() && Auth::user()->restaurant->id === $dish->restaurant_id) {
+            return view('admin.dishes.edit', compact('dish'));
+        } else {
+            return redirect()->route('admin.dishes.index');
+        }
     }
 
     /**
@@ -77,20 +82,24 @@ class DishController extends Controller
      */
     public function update(UpdateDishRequest $request, Dish $dish)
     {
-        $data = $request -> validated();
+        if (Auth::check() && Auth::user()->restaurant->id === $dish->restaurant_id) {
+            $data = $request -> validated();
 
-        if(!$request->has('visibility')) {
-            $data['visibility'] = 0;
+            if(!$request->has('visibility')) {
+                $data['visibility'] = 0;
+            }
+
+            if ($request -> has('image')) {
+                Storage::delete($dish -> image);
+                $img_path = Storage::put('uploads', $data['image']);
+                $data['image'] = $img_path;
+            }
+            $dish -> update($data);
+
+            return redirect()->route('admin.dishes.index');
+        } else {
+            return redirect()->route('admin.dishes.index');
         }
-
-        if ($request -> has('image')) {
-            Storage::delete($dish -> image);
-            $img_path = Storage::put('uploads', $data['image']);
-            $data['image'] = $img_path;
-        }
-        $dish -> update($data);
-
-        return redirect()->route('admin.dishes.index');
     }
 
     /**
@@ -98,8 +107,15 @@ class DishController extends Controller
      */
     public function destroy(Dish $dish)
     {
-        Storage::delete($dish->image);
-        $dish->delete();
-        return redirect()->route('admin.dishes.index');
+
+        if (Auth::check() && Auth::user()->restaurant->id === $dish->restaurant_id) {
+            Storage::delete($dish->image);
+            $dish->delete();
+            return redirect()->route('admin.dishes.index');
+        } else {
+            return redirect()->route('admin.dishes.index');
+        }
+
     }
+         
 }
