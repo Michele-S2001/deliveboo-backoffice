@@ -44,7 +44,7 @@ class RestaurantController extends Controller
             $restaurants = Restaurant::with('categories');
         }
 
-        $getRestaurants = $restaurants->paginate(8);
+        $getRestaurants = $restaurants->paginate(6);
 
         return response()->json ([
             'success' => true,
