@@ -44,4 +44,9 @@ class User extends Authenticatable
     public function restaurant (){
         return $this->hasOne(Restaurant::class);
     }
+
+    public function isUserOwner()
+    {
+        return $this->user_id === $this->id;
+    }
 }
