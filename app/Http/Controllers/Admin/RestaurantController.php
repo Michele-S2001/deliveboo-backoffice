@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redirect;
 
 class RestaurantController extends Controller
 {
@@ -27,12 +28,18 @@ class RestaurantController extends Controller
      */
     public function store(StoreRestaurantRequest $request)
     {
-        $data = $request -> validated ();
+        $data = $request->validated();
+
+        $data['slug'] = Str::slug($data['name']);
+        if (Restaurant::where('slug', $data['slug'])->exists()) {
+            return Redirect::back()
+                ->withErrors(['name' => 'Nome ristorante già in uso'])
+                ->withInput($data);
+        }
 
         // Salviamo le immagini
         $img_path = Storage::put ('uploads', $data ['thumb']);
         $data['thumb'] = $img_path;
-        $data['slug'] = Str::slug($data['name']);
 
         //Recuperiamo utente autenticato
         $user = Auth::user();

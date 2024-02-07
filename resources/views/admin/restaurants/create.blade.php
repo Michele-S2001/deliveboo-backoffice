@@ -18,14 +18,14 @@
                 <form id="create-restaurant-form" action="{{ route('admin.restaurants.store')}}" method='POST' class="py-4" enctype="multipart/form-data">
                     @csrf
                     {{-- name --}}
-                    <div class="mb-3">
+                    <div class="mb-4">
                         <label for="name" class="form-label">Nome dell'attività</label>
                         <input required type="text" name="name" class="form-control" id="name" placeholder="Inserisci il nome.." value="{{ old('name')}}">
                         <span id="name-error" class="text-danger"></span>
                         
                     </div>
                     {{-- thumb --}}
-                    <div class="mb-3">
+                    <div class="mb-4">
                         <label for="thumb" class="form-label">Immagine</label>
                         <input accept="image/png, image/pg, image/jpeg, image/svg, image/tmp" onchange="previewThumb(event)" required type="file" name="thumb" class="form-control" id="thumb" placeholder="Inserisci la foto del ristorante.."  value="{{ old('file')}}">
                         <span id="thumb-error" class="text-danger"></span>
@@ -35,8 +35,8 @@
                         </div>
                     </div>
                     {{-- categories --}}
-                    <div class="mb-3 d-flex gap-3 flex-wrap">
-                        <h4> Seleziona una o più categorie </h4>
+                    <div class="mb-4 d-flex gap-3 flex-wrap">
+                        <h4 class="fs-5"> Seleziona una o più categorie </h4>
                         <div class="d-flex gap-3 flex-wrap">
                             @foreach($categories as $category)
                                 <input
@@ -54,19 +54,19 @@
                         <span id="category-error" class="text-danger"></span>
                     </div>
                     {{-- address --}}
-                    <div class="mb-3">
+                    <div class="mb-4">
                         <label for="address" class="form-label">Indirizzo</label>
                         <input required type="text" name="address" class="form-control" id="address" placeholder="Indirizzo.." value="{{ old('address')}}">
                         <span id="address-error" class="text-danger"></span>
                     </div>
                     {{-- vat --}}
-                    <div class="mb-3">
+                    <div class="mb-4">
                         <label for="vat" class="form-label">Partita IVA</label>
                         <input required type="text" name="vat" class="form-control" id="vat" placeholder="Partita IVA.." value="{{ old('vat')}}">
                         <span id="vat-error" class="text-danger"></span>
                     </div>
                     {{-- btn --}}
-                    <div class="mb-3">
+                    <div class="mb-4">
                         <input type="button" value="Crea" class="btn btn-primary" id="submit-btn">
                     </div>
                 </form>
