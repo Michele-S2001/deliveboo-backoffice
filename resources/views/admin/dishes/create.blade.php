@@ -20,9 +20,13 @@
                     {{-- image --}}
                     <div class="mb-3">
                         <label for="image" class="form-label">Immagine</label>
-                        <input required type="file" name="image" class="form-control" id="image" placeholder="Foto del piatto.." value="{{ old('image')}}">
+                        <input accept="image/png, image/pg, image/jpeg, image/svg, image/tmp" onchange="previewThumb(event)" required type="file" name="image" class="form-control" id="image" placeholder="Foto del piatto.." value="{{ old('image')}}">
                        
                         <span id="image-error" class="text-danger"></span>
+                        {{-- thumb-preview --}}
+                        <div class="thumb-wrapper p-3">
+                            <img class="w-100" id="thumb-preview" src="#" alt="">
+                        </div>
                     </div>
 
                     {{-- price --}}
@@ -131,10 +135,42 @@
         }
     });
 });
+
+// --------- Thumb Preview -------- //
+
+    // Rimuovo la classe p-3
+    let thumbWrapper = document.querySelector('.thumb-wrapper')
+            thumbWrapper.classList.remove('p-3')
+            
+            function previewThumb(event) {
+                // Ottiene l'elemento che ha scatenato l'evento (input file)
+                let input = event.target;
+                console.log(input);
+
+                let preview = document.getElementById('thumb-preview');
+                console.log(preview);
+        
+                // Verifica se sono stati selezionati dei file nell'input file
+                if (input.files && input.files[0]) {
+                    // Se ci sono file selezionati, crea un nuovo oggetto FileReader
+                    let reader = new FileReader();
+        
+                    // Definisce cosa fare quando il FileReader ha completato la lettura del file
+                    reader.onload = function (e) {
+                        // Imposta l'URL del file come sorgente dell'elemento anteprima
+                        preview.src = e.target.result;
+
+                        preview.style.display = 'block';
+                    }
+        
+                    // Avvia la lettura del file come URL dati
+                    reader.readAsDataURL(input.files[0]);
+
+                    // Aggiungo la classe p-3 dopo l'aggiunta della thumb-preview
+                    thumbWrapper.classList.add('p-3')
+
+                }
+            }
 </script>
-
-
-
-
 
 @endsection

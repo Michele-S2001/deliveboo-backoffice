@@ -5,7 +5,7 @@
 
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-8">
+            <div class="col-md-8">
                 @if ($errors->any())
                     <div class="alert alert-danger">
                         <ul>
@@ -74,9 +74,9 @@
             </div>
         </div>
     </div>
+@endsection
 
-
-
+@section('script')
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             document.getElementById("submit-btn").addEventListener("click", function() {
@@ -127,49 +127,45 @@
             });
         });
 
-        // --------- Thumb Preview -------- //
+// --------- Thumb Preview -------- //
 
-        // Rimuovo la classe p-3
-        let thumbWrapper = document.querySelector('.thumb-wrapper')
-        thumbWrapper.classList.remove('p-3')
+    // Rimuovo la classe p-3
+    let thumbWrapper = document.querySelector('.thumb-wrapper')
+    thumbWrapper.classList.remove('p-3')
         
-        function previewThumb(event) {
-            // Ottiene l'elemento che ha scatenato l'evento (input file)
-            let input = event.target;
-            console.log(input);
+    function previewThumb(event) {
+        // Ottiene l'elemento che ha scatenato l'evento (input file)
+        let input = event.target;
+        console.log(input);
 
-            let preview = document.getElementById('thumb-preview');
-            console.log(preview);
+        let preview = document.getElementById('thumb-preview');
+        console.log(preview);
     
-            // Verifica se sono stati selezionati dei file nell'input file
-            if (input.files && input.files[0]) {
-                // Se ci sono file selezionati, crea un nuovo oggetto FileReader
-                let reader = new FileReader();
+        // Verifica se sono stati selezionati dei file nell'input file
+        if (input.files && input.files[0]) {
+            // Se ci sono file selezionati, crea un nuovo oggetto FileReader
+            let reader = new FileReader();
     
-                // Definisce cosa fare quando il FileReader ha completato la lettura del file
-                reader.onload = function (e) {
-                    // Imposta l'URL del file come sorgente dell'elemento anteprima
-                    preview.src = e.target.result;
+            // Definisce cosa fare quando il FileReader ha completato la lettura del file
+            reader.onload = function (e) {
+                // Imposta l'URL del file come sorgente dell'elemento anteprima
+                preview.src = e.target.result;
 
-                    preview.style.display = 'block';
-                }
-    
-                // Avvia la lettura del file come URL dati
-                reader.readAsDataURL(input.files[0]);
-
-                // Aggiungo la classe p-3 dopo l'aggiunta della thumb-preview
-                thumbWrapper.classList.add('p-3')
-
+                preview.style.display = 'block';
             }
+    
+            // Avvia la lettura del file come URL dati
+            reader.readAsDataURL(input.files[0]);
+
+            // Aggiungo la classe p-3 dopo l'aggiunta della thumb-preview
+            thumbWrapper.classList.add('p-3')
+
         }
-
-
-        
-
-
-                    
-
+    }
     </script>
-
+    
 @endsection
+
+    
+
 
