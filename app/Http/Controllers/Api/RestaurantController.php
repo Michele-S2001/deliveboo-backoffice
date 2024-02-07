@@ -21,6 +21,9 @@ class RestaurantController extends Controller
             $selectedCategories = $data['arrOfSelectedCat'];
             $restaurantIds = [];
 
+            /*Iteriamo attraverso le categorie selezionate
+            e per ciascuna eseguiamo una query per ottenere
+            gli ID dei ristoranti associati a quella categoria.*/
             foreach ($selectedCategories as $categoryId) {
                 $restaurantsByCategory = Restaurant::whereHas('categories', function ($query) use ($categoryId) {
                     $query->where('id', $categoryId);
@@ -29,6 +32,7 @@ class RestaurantController extends Controller
                 if (empty($restaurantIds)) {
                     $restaurantIds = $restaurantsByCategory;
                 } else {
+                    /*Incrociamo gli array, per ottenere gli id comuni*/
                     $restaurantIds = array_intersect($restaurantIds, $restaurantsByCategory);
                 }
             }
