@@ -15,25 +15,36 @@ class RestaurantController extends Controller
             'arrOfSelectedCat' => "nullable|exists:categories,id"
         ]);
 
-        /*if($request->has('arrOfSelectedCat')) {
-            //$query
+        $restaurants = null;
+
+        if($request->has('arrOfSelectedCat')) {
+            $selectedCategories = $data['arrOfSelectedCat'];
+            $restaurantIds = [];
+
+            foreach ($selectedCategories as $categoryId) {
+                $restaurantsByCategory = Restaurant::whereHas('categories', function ($query) use ($categoryId) {
+                    $query->where('id', $categoryId);
+                })->pluck('id')->toArray();
+
+                if (empty($restaurantIds)) {
+                    $restaurantIds = $restaurantsByCategory;
+                } else {
+                    $restaurantIds = array_intersect($restaurantIds, $restaurantsByCategory);
+                }
+            }
+
+            $restaurants = Restaurant::whereIn('id', $restaurantIds)
+                ->with('categories');
+
         } else {
-            $query = Restaurant::with('type');
+            $restaurants = Restaurant::with('categories');
         }
 
-        $restaurants = $query->paginate(6);
+        $getRestaurants = $restaurants->paginate(8);
 
         return response()->json ([
             'success' => true,
-            'results' => $restaurants
-        ]); */
-
-        $restaurants = Restaurant::with('categories')->paginate(8);
-
-        return response()->json ([
-            'success' => true,
-            'results' => $restaurants,
-            'richiesta' => $data
+            'results' => $getRestaurants
         ]);
     }
 }
