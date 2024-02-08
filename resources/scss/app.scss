@@ -1,3 +1,6 @@
 @use './_partials/dishedIndex';
 @use './_partials/utilities';
+@use './_partials/login';
 @import '~bootstrap/scss/bootstrap';
+
+$yellow: #FBC245;

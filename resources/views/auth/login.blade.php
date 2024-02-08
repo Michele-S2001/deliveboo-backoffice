@@ -2,24 +2,25 @@
 @section('title-name', 'Accedi')
 
 @section('content')
-<div class="container mt-4">
+<div class="container-fluid vh-100 login-register-body">
     <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Accedi') }}</div>
+        <div class="col-4">
+            <div class="card mt-4">
+                <div class="card_header text-white">{{ __('Accedi') }}</div>
 
-                <div class="card-body">
-                    <form id="formEl" method="POST" action="{{ route('login') }}">
+                <div class="card-body p-4">
+                    <form id="formEl" method="POST" action="{{ route('login') }}" >
                         @csrf
 
-                        <div class="mb-4 row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('Indirizzo e-mail') }}</label>
+                        <div class="row">
+                            
 
-                            <div class="col-md-6">
+                            <div class="form-outline mb-4">
                                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                                <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('Indirizzo e-mail') }}</label>
 
                                 @error('email')
-                                <span class="invalid-feedback" role="alert">
+                                <span class="invalid-feedback form-label" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
                                 @enderror
@@ -27,10 +28,10 @@
                         </div>
 
                         <div class="mb-4 row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
-
-                            <div class="col-md-6">
+                            <div class="">
                                 <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+
+                                <label for="password" class="form-label">{{ __('Password') }}</label>
 
                                 @error('password')
                                 <span class="invalid-feedback" role="alert">
