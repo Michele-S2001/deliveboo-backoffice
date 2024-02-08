@@ -4,7 +4,7 @@
 @section('content')
     @if(Auth::user()->restaurant->dishes->isNotEmpty())
         <div class="container py-5">
-            <h2 class="mb-5">Lista Piatti</h2>
+            <h2 class="mb-5 text-white">Lista Piatti</h2>
             <div class="row">
                 @foreach($dishes as $dish)
                     <div class="col-md-6 col-lg-4 mb-4">

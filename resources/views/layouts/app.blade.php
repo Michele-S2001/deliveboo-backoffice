@@ -23,21 +23,26 @@
     <div id="app">
 
 
-        <nav class="navbar navbar-expand-md shadow-sm " id="nav-color">
+        <nav class="navbar navbar-expand-md shadow-sm" id="nav-color">
             <div class="container">
+                <!-- hamburger home -->
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
+                    <img  src="../../img/burger.png" alt="Torna all'app" title="Torna all'app">
                 </button>
 
+                <!-- logo home-->
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
                         <li class="nav-item">
-                            <a class="nav-link" id="color-link" href="http://localhost:5173">{{ __('Torna all\' app') }}</a>
+                            <a class="nav-link" id="color-link" href="http://localhost:5173">
+                                <img id="logo-navbar" class="display_logo" src="../../img/logo.png" alt="Torna all'app" title="Torna all'app">
+                            </a>
+                            
                         </li>
                     </ul>
 
-                    <!-- Right Side Of Navbar -->
+                    <!-- accesso e registrazione -->
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
                         @guest
@@ -50,22 +55,17 @@
                         </li>
                         @endif
                         @else
-                        <li class="nav-item dropdown">
-                            @if(Auth::user()->restaurant)
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->restaurant->name }}
-                                </a>
-                            @else
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }}
-                                </a>
-                            @endif
 
-                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                        <!-- dropdown -->
+                        <li class="nav-item dropdown">
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                {{ Auth::user()->restaurant ? Auth::user()->restaurant->name : Auth::user()->name }}
+                            </a>
+
+                            <div class="dropdown-menu dropdown-menu-right">
                                 <a class="dropdown-item" href="{{ route('admin.dashboard') }}">{{__('Dashboard')}}</a>
                                 <a class="dropdown-item" href="{{ url('profile') }}">{{__('Profile')}}</a>
-                                <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
+                                <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                     {{ __('Logout') }}
                                 </a>
 
@@ -80,7 +80,7 @@
             </div>
         </nav>
 
-        <main class="">
+        <main class="bg-yellow">
             @yield('content')
         </main>
     </div>
