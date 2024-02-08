@@ -2,19 +2,19 @@
 @section('title-name', 'Dashboard del ristoratore')
 
 @section('content')
-    <div class="container">
-        <h2 class="fs-4 text-secondary my-4">
-            {{ __('Dashboard') }}
-        </h2>
-    </div>
     <section class="restaurant-overview">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col">
+                    <div class="py-4">
+                        <h2 class="fs-4 text-white">
+                            {{ __('Dashboard') }}
+                        </h2>
+                    </div>
                     <div class="card">
-                        <div class="card-header">{{ __('Ristorante') }}</div>
+                        <div class="card-access text-white">{{ __('Ristorante') }}</div>
 
-                        <div class="card-body">
+                        <div class="card-body box-shadow">
                             @if (auth()->check() && !(auth()->user()->restaurant))
                             <a href="{{ route('admin.restaurants.create')}}">Aggiungi Ristorante</a>
                                 @else
@@ -48,7 +48,7 @@
     @if(Auth::user()->restaurant)
         <section class="dish-tools py-3">
             <div class="container">
-                <a class="btn btn-primary" href="{{route('admin.dishes.create')}}">Aggiungi piatto</a>
+                <a class="btn_register no-underline" href="{{route('admin.dishes.create')}}">Aggiungi piatto</a>
 
                 {{-- se l'utente con un ristorante ha anche dei piatti --}}
                 @if(Auth::user()->restaurant->dishes->isNotEmpty())

@@ -3,6 +3,7 @@
 @use './_partials/login';
 @use './_partials/navbar';
 @use './_partials/register';
+@use './_partials/dashboard';
 @import '~bootstrap/scss/bootstrap';
 
 $yellow: #FBC245;

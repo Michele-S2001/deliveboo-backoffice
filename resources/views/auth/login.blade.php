@@ -2,11 +2,11 @@
 @section('title-name', 'Accedi')
 
 @section('content')
-<div class="container-fluid vh-100 login-register-body hamburger" >
+<div class="container-fluid vh-100 hamburger">
     <div class="row justify-content-center">
         <div class="col-4">
             <div class="border-card mt-4">
-                <div class="card_header">{{ __('Accedi') }}</div>
+                <div class="card-access">{{ __('Accedi') }}</div>
 
                 <div class="card-body p-4">
                     <form id="formEl" method="POST" action="{{ route('login') }}" >
@@ -60,9 +60,9 @@
                             </div>
                         </div>
 
-                        <div class="mb-4 row mb-0 justify-content-center">
-                            <div class="col-md-3">
-                                <button id="invia" type="submit" class="bg-access btn-block mb-4 text-black">
+                        <div class="row justify-content-center">
+                            <div class="col-3 mt-2">
+                                <button id="invia" type="submit" class="bg-access btn-block mb-2 text-white">
                                     {{ __('Accedi') }}
                                 </button>
                             </div>
