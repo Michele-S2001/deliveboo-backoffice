@@ -1,6 +1,8 @@
 @use './_partials/dishedIndex';
 @use './_partials/utilities';
 @use './_partials/login';
+@use './_partials/navbar';
+@use './_partials/register';
 @import '~bootstrap/scss/bootstrap';
 
 $yellow: #FBC245;
