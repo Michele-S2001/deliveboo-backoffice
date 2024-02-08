@@ -51,4 +51,13 @@ class RestaurantController extends Controller
             'results' => $getRestaurants
         ]);
     }
+
+    public function show(Restaurant $restaurant) {
+        $restaurant->load('categories', 'dishes');
+
+        return response()->json([
+            'result' => $restaurant,
+            'success' => true
+        ]);
+    }
 }
