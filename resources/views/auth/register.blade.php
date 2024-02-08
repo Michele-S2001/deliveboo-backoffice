@@ -2,11 +2,11 @@
 @section('title-name', 'Effettua il login')
 
 @section('content')
-<div class="container mt-4">
+<div class="container-fluid vh-100 hamburger">
     <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Registrazione') }}</div>
+        <div class="col-md-8 mt-4">
+            <div class="card card_shadow">
+                <div class="card_header">{{ __('Registrazione') }}</div>
 
                 <div class="card-body">
                     <form id="formEl" method="POST" action="{{ route('register') }}">
@@ -64,7 +64,7 @@
 
                         <div class="mb-4 row mb-0">
                             <div class="col-md-6 offset-md-4">
-                                <button id="invia" type="submit" class="btn btn-primary">
+                                <button id="invia" type="submit" class="bg-access btn-block mb-4 text-black">
                                     {{ __('Registrati') }}
                                 </button>
                             </div>
