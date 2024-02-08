@@ -7,7 +7,7 @@
 .card-access {
     padding: 0.75rem 1.25rem;
     margin-bottom: 0;
-    background-color: #00A082;
+    background-color: #FFB227;
     border-bottom: 1px solid rgba(0, 0, 0, 0.125);
     border-top-left-radius: 7px;
     border-top-right-radius: 7px;
@@ -41,5 +41,9 @@
     transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
     background-color: #eb7600;
     color: white;
-    margin-left: 5px;
+    margin-left: 10px;
+}
+
+@media (max-width: 768px) {
+    
 }
