@@ -3,7 +3,7 @@
 
 @section('content')
 
-    <div class="container py-4">
+    <div class="container py-4 vh-100">
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <form id="create-dish-form" action="{{route('admin.dishes.store')}}" method="POST" enctype="multipart/form-data">
