@@ -48,7 +48,7 @@
     @if(Auth::user()->restaurant)
         <section class="dish-tools py-3">
             <div class="container">
-                <a class="btn_register no-underline" href="{{route('admin.dishes.create')}}">Aggiungi piatto</a>
+                <a class="btn_add_dish no-underline" href="{{route('admin.dishes.create')}}">Aggiungi piatto</a>
 
                 {{-- se l'utente con un ristorante ha anche dei piatti --}}
                 @if(Auth::user()->restaurant->dishes->isNotEmpty())

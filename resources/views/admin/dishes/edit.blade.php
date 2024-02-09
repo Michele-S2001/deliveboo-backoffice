@@ -60,7 +60,7 @@
                         </div>
                         {{-- btn indietro --}}
                         <div class="mb-3">
-                            <a class="btn btn-secondary" href="{{ route('admin.dishes.index') }}">Indietro</a>
+                            <a class="btn_add_dish" href="{{ route('admin.dishes.index') }}">Indietro</a>
                         </div>
                     </div>
 
@@ -92,7 +92,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annulla</button>
-                    <button type="submit" class="btn btn-primary" form="editForm">Conferma</button>
+                    <button type="submit" class="btn_add_dish" form="editForm">Conferma</button>
                 </div>
             </div>
         </div>

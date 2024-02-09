@@ -68,7 +68,7 @@
 
                         {{-- btn indietro --}}
                         <div class="mb-3">
-                            <a class="btn btn-secondary" href=" {{route ('admin.dashboard') }}">Indietro</a>
+                            <a class="btn_add_dish" href=" {{route ('admin.dashboard') }}">Indietro</a>
                         </div>
                     </div>
                    

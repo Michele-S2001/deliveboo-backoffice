@@ -6,7 +6,7 @@
     <div class="row justify-content-center">
         <div class="col-xl-4 col-md-6 col-11">
             <div class="border-card mt-4">
-                <div class="card-access">{{ __('Accedi') }}</div>
+                <div class="card-access text-white">{{ __('Accedi') }}</div>
 
                 <div class="card-body p-4">
                     <form id="formEl" method="POST" action="{{ route('login') }}" >
