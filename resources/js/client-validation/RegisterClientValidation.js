@@ -35,6 +35,7 @@ const nameErrors = [
 function showErrorAndHideAfterTimeoutEmail(errorSpan, errorArr, input, n) {
     errorSpan.innerHTML = errorArr[n];
     errorSpan.style.display = 'block';
+    errorSpan.style.color = 'red';
     input.after(errorSpan);
 
     setTimeout(function() {
