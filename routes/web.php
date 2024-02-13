@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\DishController;
+use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\Admin\RestaurantController;
 use App\Http\Controllers\Api\PaymentController;
 use App\Http\Controllers\ProfileController;
@@ -32,6 +33,7 @@ Route::middleware(['auth', 'verified'])
         Route::get('/restaurants/create', [RestaurantController::class, 'create'])->name('restaurants.create');
         Route::post('/restaurants', [RestaurantController::class, 'store'])->name('restaurants.store');
         Route::resource('dishes', DishController::class);
+        Route::get('/orders', [OrderController::class, 'index'])->name('orders.index');
 
         Route::post('/api/payment/token', [PaymentController::class, 'generateToken']);
         Route::post('/api/payment/process', [PaymentController::class, 'processPayment']);
