@@ -1,0 +1,36 @@
+.order_card {
+    background-color: white;
+    padding: 14px 14px 10px 14px;
+    gap: 10px;
+    border-radius: 20px;
+    margin-bottom: 24px;
+    display: flex;
+
+    &__main-data {
+        flex-basis: 50%;
+    }
+    &__additional-data {
+        flex-basis: 50%;
+    }
+}
+
+.data-list {
+    list-style: none;
+    padding: 0;
+
+    .data {
+        &__label {
+            font-weight: bold;
+        }
+
+        &__text {
+            margin-bottom: 10px;
+        }
+    }
+}
+
+@media (max-width: 1000px) {
+    .order_card {
+        display: block;
+    }
+}

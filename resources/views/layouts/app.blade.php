@@ -38,7 +38,7 @@
                             <a class="nav-link" id="color-link" href="http://localhost:5173">
                                 <img id="logo-navbar" class="display_logo" src="../../img/logo.png" alt="Torna all'app" title="Torna all'app">
                             </a>
-                            
+
                         </li>
                     </ul>
 
@@ -80,7 +80,7 @@
             </div>
         </nav>
 
-        <main class="bg-yellow">
+        <main class="bg-yellow" style="min-height: 100vh;">
             @yield('content')
         </main>
     </div>
