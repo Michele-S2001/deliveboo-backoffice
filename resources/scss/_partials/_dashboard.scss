@@ -1,5 +1,9 @@
-.bg-yellow {
-    background-color: #FFC244;
+// .bg-yellow {
+//     background-color: #FFC244;
+// }
+
+.margin {
+    margin: 0 auto;
 }
 
 .no-underline {
@@ -27,3 +31,49 @@
     color: white;
     text-decoration: none;
 }
+
+.static-img {
+    background-image: url(../../img/static-img.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    min-height: 600px;
+}
+
+/* CSS */
+.button {
+  align-items: center;
+  background: rgb(0, 0, 0, 0.75);
+  border: 0;
+  border-radius: 8px;
+  box-sizing: border-box;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  font-size: 1rem;
+  justify-content: center;
+  line-height: 1.5rem;
+  padding: 15px;
+  position: relative;
+  text-align: center;
+  transition: .2s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: pre;
+  word-break: normal;
+  word-spacing: normal;
+
+}
+
+.button:hover {
+  background: rgb(251, 194, 69, 0.75);
+  box-shadow: 0px 0px 30px 0 rgba(251, 194, 69, 0.50), 0px 0px 30px 0;
+}
+
+@media (min-width: 768px) {
+  .button {
+    padding: 24px;
+  }
+}
+        
+
