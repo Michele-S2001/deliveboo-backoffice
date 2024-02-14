@@ -14,18 +14,21 @@
                         @else
                             <div class="row h-100 pb-4">
                                 <div class="col-md-6 ps-5 d-flex justify-content-end flex-column">
-                                    <h3>
-                                        {{ Auth::user()->restaurant->name }}
-                                    </h3>
-                                    <p>
-                                        Indirizzo: {{ Auth::user()->restaurant->address }}
-                                    </p>
-                                    <p>
-                                        Partita iva: {{ Auth::user()->restaurant->vat }}
-                                    </p>
-                                    <p>
-                                        {{ Auth::user()->restaurant->category }}
-                                    </p>
+                                    <div class="data">
+                                        <h3>
+                                            {{ Auth::user()->restaurant->name }}
+                                        </h3>
+                                        <p>
+                                            Indirizzo: {{ Auth::user()->restaurant->address }}
+                                        </p>
+                                        <p>
+                                            Partita iva: {{ Auth::user()->restaurant->vat }}
+                                        </p>
+                                        <p>
+                                            {{ Auth::user()->restaurant->category }}
+                                        </p>
+                                    </div>
+                                    
                                 </div>
                                 <div class="col-md-6 d-flex justify-content-center align-items-center">
                                     @if(Auth::user()->restaurant)
