@@ -4,7 +4,9 @@
 @section('content')
     @if(Auth::user()->restaurant->dishes->isNotEmpty())
         <div class="container py-5">
-            <h2 class="mb-5 text-white">Lista Piatti</h2>
+            <h2 class="mb-5 text-black">I tuoi piatti</h2>
+            <a href="{{ route('admin.dishes.create') }}" class="btn btn-primary">Aggiungi un piatto</a>
+            <a href="{{ route('admin.dashboard') }}" class="btn btn-primary">Torna al tuo ristorante</a>
             <div class="row">
                 @foreach($dishes as $dish)
                     <div class="col-md-6 col-lg-4 mb-4">

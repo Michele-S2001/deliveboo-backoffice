@@ -32,18 +32,18 @@
                                         <section class="py-3">
                                             <div class="container d-flex flex-column gap-3">
                                                 <div class="col-12">
-                                                        <a href="{{ url('profile') }}" class="button text-decoration-none">Profilo</a>
+                                                        <a href="{{ url('profile') }}" class="button text-decoration-none">Il tuo profilo</a>
                                                 </div>
 
                                                 <div class="d-flex">
                                                     <div class="col-6 pe-2">
-                                                        <a class="button text-decoration-none" href="{{route('admin.dishes.create')}}">Aggiungi piatto</a>
+                                                        <a class="button text-decoration-none" href="{{route('admin.orders.index')}}">I tuoi ordini</a>
                                                     </div>
                                                     
                                                     {{-- se l'utente con un ristorante ha anche dei piatti --}}
                                                     @if(Auth::user()->restaurant->dishes->isNotEmpty())
                                                     <div class="col-6 ps-2">
-                                                        <a class="button text-decoration-none" href="{{ route('admin.dishes.index') }}">Lista piatti</a>
+                                                        <a class="button text-decoration-none" href="{{ route('admin.dishes.index') }}">I tuoi piatti</a>
                                                     </div>
                                                     @endif
                                                 </div>

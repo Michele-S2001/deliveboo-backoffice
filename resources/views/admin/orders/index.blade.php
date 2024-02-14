@@ -6,7 +6,6 @@
 <div class="container py-5">
     <h2 class="mb-4">Lista ordini</h2>
     <p class="fs-5 mb-5">In ogni ordine sono presenti i dati del cliente, il totale del pagamento e la lista dei piatti con annessa quantità</p>
-
     <div class="row justify-content-center">
         <div class="col-md-10">
             @forelse($orders as $order)
@@ -55,6 +54,7 @@
             @empty
                 <h4 class="text-center">Non ci sono ordini presenti</h4>
             @endforelse
+            <a href="{{ route('admin.dashboard') }}" class="btn btn-primary">Torna al tuo ristorante</a>
         </div>
     </div>
 
