@@ -13,8 +13,8 @@
                             </a>
                         @else
                             <div class="row h-100 pb-4">
-                                <div class="col-md-6 ps-5 d-flex justify-content-end flex-column">
-                                    <div class="data">
+                                <div class="col-md-6 ps-md-5 d-flex justify-content-end flex-column">
+                                    <div class="restaurant-tag p-4">
                                         <h3>
                                             {{ Auth::user()->restaurant->name }}
                                         </h3>
