@@ -10,8 +10,8 @@
             <div class="row">
                 @foreach($dishes as $dish)
                     <div class="col-md-6 col-lg-4 mb-4">
-                        <div class="card h-100">
-                            <img class="card__image-dish" src="{{ asset('storage/' . $dish->image ) }}" class="card-img-top" alt="{{ $dish->name }}">
+                        <div class="bg_card h-100 border-0 rounded-3 shadow-sm">
+                            <img src="{{ asset('storage/' . $dish->image ) }}" class="image_card rounded-top" alt="{{ $dish->name }}">
                             <div class="card-body d-flex flex-column">
                                 <h5 class="card-title"> {{  $dish->name }} </h5>
                                 <p class="card-text"> {{ $dish->description }} </p>

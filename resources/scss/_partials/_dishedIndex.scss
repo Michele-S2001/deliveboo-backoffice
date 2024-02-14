@@ -1,5 +1,16 @@
-.card__image-dish {
-    aspect-ratio: 1;
-    height: 250px;
-    object-fit: cover;
+.bg_card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: rgb(255, 194, 68, 0.5);
+    background-clip: border-box;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    border-radius: 0.25rem;
+}
+
+.image_card {
+    width: 100%;
+    transition: all 0.5s;
 }
