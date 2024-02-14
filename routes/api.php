@@ -30,5 +30,5 @@ Route::get('/categories', [CategoryController::class, 'index']);
 
 Route::get('/dishes', [DishController::class, 'index']);
 
-Route::post('/api/payment/token', [PaymentController::class, 'generateToken']);
-Route::post('/api/payment/process', [PaymentController::class, 'processPayment']);
+Route::post('/payment/token', [PaymentController::class, 'generateToken']);
+Route::post('/payment/process', [PaymentController::class, 'makePayment']);
