@@ -6,6 +6,7 @@ use App\Http\Controllers\Api\DishController;
 use App\Models\Dish;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Api\PaymentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,3 +29,6 @@ Route::get('/restaurants/{restaurant:slug}', [RestaurantController::class, 'show
 Route::get('/categories', [CategoryController::class, 'index']);
 
 Route::get('/dishes', [DishController::class, 'index']);
+
+Route::post('/api/payment/token', [PaymentController::class, 'generateToken']);
+Route::post('/api/payment/process', [PaymentController::class, 'processPayment']);

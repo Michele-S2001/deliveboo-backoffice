@@ -4,7 +4,7 @@ use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\DishController;
 use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\Admin\RestaurantController;
-use App\Http\Controllers\Api\PaymentController;
+
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Redirect;
@@ -35,8 +35,7 @@ Route::middleware(['auth', 'verified'])
         Route::resource('dishes', DishController::class);
         Route::get('/orders', [OrderController::class, 'index'])->name('orders.index');
 
-        Route::post('/api/payment/token', [PaymentController::class, 'generateToken']);
-        Route::post('/api/payment/process', [PaymentController::class, 'processPayment']);
+        
     });
 
 Route::middleware('auth')->group(function () {
