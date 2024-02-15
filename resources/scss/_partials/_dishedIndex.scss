@@ -8,9 +8,100 @@
     background-clip: border-box;
     border: 1px solid rgba(0, 0, 0, 0.125);
     border-radius: 0.25rem;
+    margin-top: 40px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px #ccc;
+    transition: all 0.5s;
 }
 
-.image_card {
-    width: 100%;
+.bg_card:hover {
+    box-shadow: 0 2px 10px #ccc;
     transition: all 0.5s;
+}
+
+.bg_card:hover img {
+    transform: scale(1.1);
+    transition: all 0.4s;
+}
+
+.card_body {
+    flex: 1 1 auto;
+    padding: 1.25rem;
+}
+
+.card_body .btn_add_dish {
+    display: block;
+    padding: 5px 10px;
+    border-radius: 3px;
+}
+
+.btn_add_dish:hover {
+    background-color: #00815c;
+    border-color: #00815c;
+}
+
+.btn_delete {
+    display: inline-block;
+    font-weight: 400;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    user-select: none;
+    border: 1px solid transparent;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: 0.25rem;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    background-color: red;
+    color: white;
+    text-decoration: none;
+}
+
+.btn_delete:hover {
+    background-color: rgb(137, 2, 2);
+    border-color: rgb(137, 2, 2);
+}
+
+#text_center {
+    margin: 20px;
+    color: #038169;
+}
+
+.card_relative {
+    position: relative;
+}
+
+.btn_absolute {
+    position: absolute;
+    visibility: hidden;
+    top: 90%;
+}
+
+.card_relative:hover .btn_absolute {
+    visibility: visible;
+}
+
+.btn_add_dish2 {
+    display: inline-block;
+    font-weight: 400;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    user-select: none;
+    border: 1px solid transparent;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: 0.25rem;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    background-color: #00A082;
+    color: white;
+    text-decoration: none;
+    margin-right: 20px;
+}
+
+.btn_add_dish2:hover {
+    background-color: #00815c;
+    border-color: #00815c;
 }
