@@ -59,21 +59,26 @@
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
-  white-space: pre;
+  white-space: nowrap;
   word-break: normal;
   word-spacing: normal;
 
+}
+
+.wrap {
+    display: grid;
+    grid-template-columns: 1fr;
+    place-items: center;
+    height: 100%;
 }
 
 .restaurant-tag {
   background: rgb(0, 0, 0, 0.75);
   border: 0;
   border-radius: 8px;
-  box-sizing: border-box;
   color: white;
   padding: 15px;
   transition: .2s;
-  max-width: fit-content;
 }
 
 .button:hover {

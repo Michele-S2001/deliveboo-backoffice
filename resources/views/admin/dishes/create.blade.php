@@ -13,7 +13,7 @@
                     <div class="mb-3">
                         <label for="name" class="form-label">Nome del piatto</label>
                         <input required type="text" name="name" class="form-control"   id="name" placeholder="Nome.." value="{{ old('name')}}">
-                       
+
                         <span id="name-error" class="text-danger"></span>
                     </div>
 
@@ -21,11 +21,11 @@
                     <div class="mb-3">
                         <label for="image" class="form-label">Immagine</label>
                         <input accept="image/png, image/pg, image/jpeg, image/svg, image/tmp" onchange="previewThumb(event)" required type="file" name="image" class="form-control" id="image" placeholder="Foto del piatto.." value="{{ old('image')}}">
-                       
+
                         <span id="image-error" class="text-danger"></span>
                         {{-- thumb-preview --}}
                         <div class="thumb-wrapper p-3">
-                            <img class="w-100" id="thumb-preview" src="#" alt="">
+                            <img class="w-100 form-img" id="thumb-preview" src="#" alt="">
                         </div>
                     </div>
 
@@ -36,7 +36,7 @@
                             <span class="input-group-text">&euro;</span>
                             <input required name="price" type="number" step="0.01" class="form-control" id="price" aria-label="Amount (to the nearest dollar)" value="{{old('price')}}">
                         </div>
-                       
+
                         <span id="price-error" class="text-danger"></span>
                     </div>
 
@@ -44,7 +44,7 @@
                     <div class="mb-3">
                         <label for="description" class="form-label">Descrizione</label>
                         <textarea required name="description" class="form-control" id="description" rows="3"> {{ old('description') }} </textarea>
-                       
+
                         <span id="description-error" class="text-danger"></span>
                     </div>
 
@@ -56,7 +56,7 @@
                               Visibilità
                             </label>
                         </div>
-                      
+
                         {{-- <span id="visibility-error" class="text-danger"></span> --}}
                     </div>
 
@@ -71,7 +71,7 @@
                             <a class="btn_add_dish" href=" {{route ('admin.dishes.index') }}">Indietro</a>
                         </div>
                     </div>
-                   
+
                     @if ($errors->any())
                     <div class="alert alert-danger">
                         <ul>
@@ -128,7 +128,7 @@
             descriptionError.innerHTML = "";
         }
 
-        
+
 
         if (name !== "" && image > 0 && price !== "" && description !== "") {
             document.getElementById('create-dish-form').submit();
@@ -141,7 +141,7 @@
     // Rimuovo la classe p-3
     let thumbWrapper = document.querySelector('.thumb-wrapper')
             thumbWrapper.classList.remove('p-3')
-            
+
             function previewThumb(event) {
                 // Ottiene l'elemento che ha scatenato l'evento (input file)
                 let input = event.target;
@@ -149,12 +149,12 @@
 
                 let preview = document.getElementById('thumb-preview');
                 console.log(preview);
-        
+
                 // Verifica se sono stati selezionati dei file nell'input file
                 if (input.files && input.files[0]) {
                     // Se ci sono file selezionati, crea un nuovo oggetto FileReader
                     let reader = new FileReader();
-        
+
                     // Definisce cosa fare quando il FileReader ha completato la lettura del file
                     reader.onload = function (e) {
                         // Imposta l'URL del file come sorgente dell'elemento anteprima
@@ -162,7 +162,7 @@
 
                         preview.style.display = 'block';
                     }
-        
+
                     // Avvia la lettura del file come URL dati
                     reader.readAsDataURL(input.files[0]);
 
