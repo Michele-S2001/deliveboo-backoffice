@@ -5,21 +5,21 @@
     @if(Auth::user()->restaurant->dishes->isNotEmpty())
         <div class="container py-5">
             <h2 class="mb-5 text-black">I tuoi piatti</h2>
-            <a href="{{ route('admin.dishes.create') }}" class="btn btn-primary">Aggiungi un piatto</a>
-            <a href="{{ route('admin.dashboard') }}" class="btn btn-primary">Torna al tuo ristorante</a>
+            <a href="{{ route('admin.dishes.create') }}" class="btn_add_dish2">Aggiungi un piatto</a>
+            <a href="{{ route('admin.dashboard') }}" class="btn_add_dish2">Torna al tuo ristorante</a>
             <div class="row">
                 @foreach($dishes as $dish)
                     <div class="col-md-6 col-lg-4 mb-4">
-                        <div class="bg_card h-100 border-0 rounded-3 shadow-sm">
+                        <div class="bg_card card_relative h-100 border-0 rounded-3 shadow-sm">
                             <img src="{{ asset('storage/' . $dish->image ) }}" class="image_card rounded-top" alt="{{ $dish->name }}">
-                            <div class="card-body d-flex flex-column">
+                            <div class="card_body d-flex flex-column" id="text_center">
                                 <h5 class="card-title"> {{  $dish->name }} </h5>
                                 <p class="card-text"> {{ $dish->description }} </p>
                                 <p class="card-text">Prezzo: {{ $dish->price }} &euro;</p>
                                 <p class="card-text">Visibilità: {{ $dish->visibility ? 'Si' : 'No'}} </p>
-                                <div class="d-flex gap-3 mt-auto">
-                                    <a href="{{ route('admin.dishes.edit', $dish) }}" class="btn btn-primary">Modifica</a>
-                                    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal-{{ $dish->id }}">Elimina</button>
+                                <div class="d-flex gap-3 mt-auto btn_absolute">
+                                    <a href="{{ route('admin.dishes.edit', $dish) }}" class="btn_add_dish">Modifica</a>
+                                    <button type="button" class="btn_delete" data-bs-toggle="modal" data-bs-target="#deleteModal-{{ $dish->id }}">Elimina</button>
                                 </div>
                             </div>
                         </div>
