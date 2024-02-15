@@ -22,7 +22,7 @@
                         <label for="name" class="form-label">Nome dell'attività</label>
                         <input required type="text" name="name" class="form-control" id="name" placeholder="Inserisci il nome.." value="{{ old('name')}}">
                         <span id="name-error" class="text-danger"></span>
-                        
+
                     </div>
                     {{-- thumb --}}
                     <div class="mb-4">
@@ -31,7 +31,7 @@
                         <span id="thumb-error" class="text-danger"></span>
                         {{-- thumb-preview --}}
                         <div class="thumb-wrapper p-3">
-                            <img class="w-100" id="thumb-preview" src="#" alt="">
+                            <img class="w-100 form-img" id="thumb-preview" src="#" alt="">
                         </div>
                     </div>
                     {{-- categories --}}
@@ -132,7 +132,7 @@
     // Rimuovo la classe p-3
     let thumbWrapper = document.querySelector('.thumb-wrapper')
     thumbWrapper.classList.remove('p-3')
-        
+
     function previewThumb(event) {
         // Ottiene l'elemento che ha scatenato l'evento (input file)
         let input = event.target;
@@ -140,12 +140,12 @@
 
         let preview = document.getElementById('thumb-preview');
         console.log(preview);
-    
+
         // Verifica se sono stati selezionati dei file nell'input file
         if (input.files && input.files[0]) {
             // Se ci sono file selezionati, crea un nuovo oggetto FileReader
             let reader = new FileReader();
-    
+
             // Definisce cosa fare quando il FileReader ha completato la lettura del file
             reader.onload = function (e) {
                 // Imposta l'URL del file come sorgente dell'elemento anteprima
@@ -153,7 +153,7 @@
 
                 preview.style.display = 'block';
             }
-    
+
             // Avvia la lettura del file come URL dati
             reader.readAsDataURL(input.files[0]);
 
@@ -163,9 +163,9 @@
         }
     }
     </script>
-    
+
 @endsection
 
-    
+
 
 
