@@ -8,7 +8,7 @@
             <div class="col-md-8 mt-4">
             <div class="card-access text-white"><strong>{{ __('Modifica il tuo piatto') }}</strong></div>
 
-            <div class="card-body bg_card_yellow border rounded p-4">
+            <div class="card-body bg_card_profile border rounded p-4">
                     <form id="editForm" action="{{ route('admin.dishes.update', $dish->id) }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         @method('PUT')

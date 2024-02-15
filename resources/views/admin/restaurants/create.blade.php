@@ -4,6 +4,8 @@
 @section('content')
 
     <div class="container">
+    <div class="card-access text-white mt-5"><strong>{{ __('Aggiungi il tuo ristorante') }}</strong></div>
+<div class="card-body bg_card_profile border rounded p-4">
         <div class="row justify-content-center">
             <div class="col-md-8">
                 @if ($errors->any())
@@ -67,13 +69,14 @@
                     </div>
                     {{-- btn --}}
                     <div class="mb-4">
-                        <input type="button" value="Crea" class="btn btn-primary" id="submit-btn">
+                        <input type="button" value="Crea" class="btn_add_dish" id="submit-btn">
                     </div>
                 </form>
 
             </div>
         </div>
     </div>
+</div>
 @endsection
 
 @section('script')
