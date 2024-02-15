@@ -5,84 +5,87 @@
 
     <div class="container py-4 vh-100">
         <div class="row justify-content-center">
-            <div class="col-md-8">
-                <form id="create-dish-form" action="{{route('admin.dishes.store')}}" method="POST" enctype="multipart/form-data">
-                    @csrf
+            <div class="col-md-8 mt-4">
+                <div class="card-access text-white"><strong>{{ __('Crea il tuo piatto') }}</strong></div>
 
-                    {{-- name --}}
-                    <div class="mb-3">
-                        <label for="name" class="form-label">Nome del piatto</label>
-                        <input required type="text" name="name" class="form-control"   id="name" placeholder="Nome.." value="{{ old('name')}}">
+                <div class="card-body bg_card_yellow border rounded p-4">
+                    <form id="create-dish-form" action="{{route('admin.dishes.store')}}" method="POST" enctype="multipart/form-data">
+                        @csrf
 
-                        <span id="name-error" class="text-danger"></span>
-                    </div>
-
-                    {{-- image --}}
-                    <div class="mb-3">
-                        <label for="image" class="form-label">Immagine</label>
-                        <input accept="image/png, image/pg, image/jpeg, image/svg, image/tmp" onchange="previewThumb(event)" required type="file" name="image" class="form-control" id="image" placeholder="Foto del piatto.." value="{{ old('image')}}">
-
-                        <span id="image-error" class="text-danger"></span>
-                        {{-- thumb-preview --}}
-                        <div class="thumb-wrapper p-3">
-                            <img class="w-100 form-img" id="thumb-preview" src="#" alt="">
-                        </div>
-                    </div>
-
-                    {{-- price --}}
-                    <div class=" mb-3">
-                        <label class="form-label" for="price"> Prezzo </label>
-                        <div class="input-group">
-                            <span class="input-group-text">&euro;</span>
-                            <input required name="price" type="number" step="0.01" class="form-control" id="price" aria-label="Amount (to the nearest dollar)" value="{{old('price')}}">
-                        </div>
-
-                        <span id="price-error" class="text-danger"></span>
-                    </div>
-
-                    {{-- description --}}
-                    <div class="mb-3">
-                        <label for="description" class="form-label">Descrizione</label>
-                        <textarea required name="description" class="form-control" id="description" rows="3"> {{ old('description') }} </textarea>
-
-                        <span id="description-error" class="text-danger"></span>
-                    </div>
-
-                    {{-- visibility --}}
-                    <div class="mb-3">
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="1" id="visibility" name="visibility" checked>
-                            <label class="form-check-label" for="visibility">
-                              Visibilità
-                            </label>
-                        </div>
-
-                        {{-- <span id="visibility-error" class="text-danger"></span> --}}
-                    </div>
-
-                    <div class="d-flex gap-3">
-                        {{-- btn --}}
+                        {{-- name --}}
                         <div class="mb-3">
-                            <input type="submit" value="Salva" class="btn btn-primary" id="submit-btn">
+                            <label for="name" class="form-label">Nome del piatto</label>
+                            <input required type="text" name="name" class="form-control"   id="name" placeholder="Nome.." value="{{ old('name')}}">
+
+                            <span id="name-error" class="text-danger"></span>
                         </div>
 
-                        {{-- btn indietro --}}
+                        {{-- image --}}
                         <div class="mb-3">
-                            <a class="btn_add_dish" href=" {{route ('admin.dishes.index') }}">Indietro</a>
+                            <label for="image" class="form-label">Immagine</label>
+                            <input accept="image/png, image/pg, image/jpeg, image/svg, image/tmp" onchange="previewThumb(event)" required type="file" name="image" class="form-control" id="image" placeholder="Foto del piatto.." value="{{ old('image')}}">
+
+                            <span id="image-error" class="text-danger"></span>
+                            {{-- thumb-preview --}}
+                            <div class="thumb-wrapper p-3">
+                                <img class="w-100 form-img" id="thumb-preview" src="#" alt="">
+                            </div>
                         </div>
-                    </div>
 
-                    @if ($errors->any())
-                    <div class="alert alert-danger">
-                        <ul>
-                            @foreach ($errors->all() as $error)
-                                <li>{{ $error }}</li>
-                            @endforeach
-                        </ul>
-                    </div>
-                    @endif
-                </form>
+                        {{-- price --}}
+                        <div class=" mb-3">
+                            <label class="form-label" for="price"> Prezzo </label>
+                            <div class="input-group">
+                                <span class="input-group-text">&euro;</span>
+                                <input required name="price" type="number" step="0.01" class="form-control" id="price" aria-label="Amount (to the nearest dollar)" value="{{old('price')}}">
+                            </div>
 
+                            <span id="price-error" class="text-danger"></span>
+                        </div>
+
+                        {{-- description --}}
+                        <div class="mb-3">
+                            <label for="description" class="form-label">Descrizione</label>
+                            <textarea required name="description" class="form-control" id="description" rows="3"> {{ old('description') }} </textarea>
+
+                            <span id="description-error" class="text-danger"></span>
+                        </div>
+
+                        {{-- visibility --}}
+                        <div class="mb-3">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="1" id="visibility" name="visibility" checked>
+                                <label class="form-check-label" for="visibility">
+                                Visibilità
+                                </label>
+                            </div>
+
+                            {{-- <span id="visibility-error" class="text-danger"></span> --}}
+                        </div>
+
+                        <div class="d-flex gap-3">
+                            {{-- btn --}}
+                            <div class="mb-3">
+                                <input type="submit" value="Salva" class="btn_add_dish" id="submit-btn">
+                            </div>
+
+                            {{-- btn indietro --}}
+                            <div class="mb-3">
+                                <a class="btn_add_dish" href=" {{route ('admin.dishes.index') }}">Indietro</a>
+                            </div>
+                        </div>
+
+                        @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                        @endif
+                    </form>
+                </div>
             </div>
         </div>
     </div>

@@ -5,6 +5,8 @@
 @use './_partials/register';
 @use './_partials/dashboard';
 @use './_partials/orders';
+@use './_partials/createDishes';
+@use './_partials/editProfile';
 @import '~bootstrap/scss/bootstrap';
 
 $yellow: #FBC245;
