@@ -27,7 +27,7 @@
             <div class="container">
                 <!-- hamburger home -->
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <img  src="../../img/burger.png" alt="Torna all'app" title="Torna all'app">
+                    <img  src="/img/burger.png" alt="Torna all'app" title="Torna all'app">
                 </button>
 
                 <!-- logo home-->
@@ -36,7 +36,7 @@
                     <ul class="navbar-nav me-auto">
                         <li class="nav-item">
                             <a class="nav-link" id="color-link" href="http://localhost:5173">
-                                <img id="logo-navbar" class="display_logo" src="../../img/logo.png" alt="Torna all'app" title="Torna all'app">
+                                <img id="logo-navbar" class="display_logo" src="/img/logo.png" alt="Torna all'app" title="Torna all'app">
                             </a>
 
                         </li>
