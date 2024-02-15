@@ -8,7 +8,7 @@
             <div class="col-md-8 mt-4">
                 <div class="card-access text-white"><strong>{{ __('Crea il tuo piatto') }}</strong></div>
 
-                <div class="card-body bg_card_yellow border rounded p-4">
+                <div class="card-body bg_card_profile border rounded p-4">
                     <form id="create-dish-form" action="{{route('admin.dishes.store')}}" method="POST" enctype="multipart/form-data">
                         @csrf
 
