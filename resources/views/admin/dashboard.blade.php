@@ -5,7 +5,7 @@
     <section class="restaurant-overview">
         <div class="container">
             <div class="row justify-content-center">
-                <div class="p-5">
+                <div class="pt-4">
                     <div class="container static-img text-white h-100 rounded">
                         @if (auth()->check() && !(auth()->user()->restaurant))
                             <a href="{{ route('admin.restaurants.create')}}">
