@@ -5,11 +5,11 @@
     @if(Auth::user()->restaurant->dishes->isNotEmpty())
         <div class="container py-5">
             <h2 class="mb-5 text-black">I tuoi piatti</h2>
-            <a href="{{ route('admin.dishes.create') }}" class="btn_add_dish2">Aggiungi un piatto</a>
-            <a href="{{ route('admin.dashboard') }}" class="btn_add_dish2">Torna al tuo ristorante</a>
+            <a href="{{ route('admin.dishes.create') }}" class="btn_add_dish2 mb-2 mb-sm-0">Aggiungi un piatto</a>
+            <a href="{{ route('admin.dashboard') }}" class="btn_add_dish2 mb-2 mb-sm-0">Torna al tuo ristorante</a>
             <div class="row">
                 @foreach($dishes as $dish)
-                    <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="col-lg-6 col-xxl-4 mb-4">
                         <div class="bg_card card_relative h-100 border-0 rounded-3 shadow-sm">
                             <img src="{{ asset('storage/' . $dish->image ) }}" class="image_card rounded-top" alt="{{ $dish->name }}">
                             <div class="card_body d-flex flex-column" id="text_center">
