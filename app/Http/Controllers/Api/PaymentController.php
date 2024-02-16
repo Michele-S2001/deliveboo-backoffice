@@ -46,7 +46,7 @@ class PaymentController extends Controller
         // ]);
 
         $result = $gateway->transaction()->sale([
-            'amount' => 100000,
+            'amount' => 10,
             'paymentMethodNonce' => $request->token,
             'options' => [
                 'submitForSettlement' => true
