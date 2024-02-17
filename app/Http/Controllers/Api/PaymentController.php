@@ -36,67 +36,35 @@ class PaymentController extends Controller
 
     public function makePayment (Request $request, Gateway $gateway) {
         
-        // $gateway = new Braintree\Gateway([
-        //     'environment' => config('services.braintree.environment'),
-        //     'merchantId' => config('services.braintree.merchantId'),
-        //     'publicKey' => config('services.braintree.publicKey'),
-        //     'privateKey' => config('services.braintree.privateKey'),
-
-            
-        // ]);
+        $current_order = Order::where('id', $request->orderId)->first();
 
         $result = $gateway->transaction()->sale([
-            'amount' => 10,
+            'amount' => $current_order['subtotal'],
             'paymentMethodNonce' => $request->token,
             'options' => [
                 'submitForSettlement' => true
             ]
         ]);
 
-        return response()->json([
-            'success' => true,
-            'data' => $result
-        ]);
+        if ($result->success) {
 
-        // $amount = $request->amount;
-        // $nonce = $request->payment_method_nonce;
+            Order::where('id', $request->orderId)->update(['payment_status' => true]);
 
-        // $result = $gateway->transaction()->sale([
-        //     'amount' => $amount,
-        //     'paymentMethodNonce' => $nonce,
-        //     'options' => [
-        //     'submitForSettlement' => true
-        //     ]
-        // ]);
+            $data = [
+                'status' => 1,
+                'success' => true,
+                'message' => 'Pagamento eseguito con successo e ordine preso in carico!'
+            ];
 
-        // if ($result->success) {
-        //     $transaction = $result->transaction;
+            return response()->json($data, 200);
+        } else {
+            $data = [
+                'success' => false,
+                'message' => 'Transazione Fallita!',
+            ];
 
-        //     $data = $request->all();
-        //     // da decidere qui dentro data
-        //     $dishid = $data['itemid']; 
-        //     $foodsqty =$data['itemqty'];
-
-        //     // $current = Carbon::now();
-
-        //     $order = new Order;
-
-        //     $order->name = $data['full_name'];
-        //     $order->email = $data['email'];
-        //     $order->phone_number = $data['phone_number'];
-        //     $order->address = $data['delivery_address'];
-        //     $order->notes = $data['notes'];
-        //     $order->subtotal = $data['subtotal'];
-        //     $order->restaurant_id = $data['restaurant_id'];
-
-        //     $order->payment()->associate(
-        //         // PaymentController::(
-        //         //     ['status' => 1],
-        //         // )
-        //         );
-
-        //     $order = $order->save();
-        // }
+            return response()->json($data, 401);
+        }
         
     }
 }
