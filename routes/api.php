@@ -7,6 +7,8 @@ use App\Models\Dish;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\PaymentController;
+use App\Http\Controllers\Api\OrderController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -32,4 +34,6 @@ Route::get('/dishes', [DishController::class, 'index']);
 
 Route::get('/payment/token', [PaymentController::class, 'generateToken']);
 Route::post('/payment/process', [PaymentController::class, 'makePayment']);
+
+Route::post('/orders', [OrderController::class, 'store']);
     

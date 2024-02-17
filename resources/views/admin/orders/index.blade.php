@@ -4,6 +4,7 @@
 @section('content')
 
 <div class="container py-5">
+    <a href="{{ route('admin.dashboard') }}" class="btn_add_dish mb-4">Torna al tuo ristorante</a>
 <div class="card-access text-white"><strong>{{ __('Lista ordini') }}</strong></div>
 <div class="card-body bg_card_profile border rounded p-4">
     <p class="fs-5 mb-5">In ogni ordine sono presenti i dati del cliente, il totale del pagamento e la lista dei piatti con annessa quantità</p>
@@ -59,7 +60,7 @@
         </div>
     </div>
 </div>
-<a href="{{ route('admin.dashboard') }}" class="btn_add_dish mt-4">Torna al tuo ristorante</a>
+
 </div>
 
 @endsection
