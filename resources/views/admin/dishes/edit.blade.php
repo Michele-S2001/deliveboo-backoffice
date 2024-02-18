@@ -3,7 +3,7 @@
 
 @section('content')
 
-    <div class="container py-4 vh-100">
+    <div class="container py-4" style="min-height: 100vh">
         <div class="row justify-content-center">
             <div class="col-md-8 mt-4">
             <div class="card-access text-white"><strong>{{ __('Modifica il tuo piatto') }}</strong></div>

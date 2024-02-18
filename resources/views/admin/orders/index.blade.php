@@ -32,7 +32,7 @@
                             </li>
                             <li class="data">
                                 <span class="data__label">Totale dell'ordine</span>
-                                <p class="data__text"> {{ $order->subtotal}} </p>
+                                <p class="data__text"> {{ $order->subtotal}} &euro;</p>
                             </li>
                         </ul>
                     </div>
@@ -56,7 +56,7 @@
             @empty
                 <h4 class="text-center">Non ci sono ordini presenti</h4>
             @endforelse
-            
+
         </div>
     </div>
 </div>
