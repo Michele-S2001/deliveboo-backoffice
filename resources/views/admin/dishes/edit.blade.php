@@ -127,13 +127,13 @@
                 } else {
                     nameError.innerHTML = "";
                 }
-
+                /*
                 if (image === 0) {
                     imageError.innerHTML = "Il campo immagine è obbligatorio";
                 } else {
                     imageError.innerHTML = "";
                 }
-
+                */
                 if (price === "") {
                     priceError.innerHTML = "Il campo prezzo è obbligatorio";
                 } else {

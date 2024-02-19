@@ -1,4 +1,5 @@
 @extends('layouts.app')
+@section('title-name', 'Modifica dati utente')
 @section('content')
 
 <div class="container pb-5">

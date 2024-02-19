@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title-name', 'Effettua il login')
+@section('title-name', 'Registrati')
 
 @section('content')
 <div class="container-fluid vh-100 hamburger">
@@ -17,7 +17,7 @@
                                 <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Nome') }}</label>
 
                                 <input required id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}"   autocomplete="name" autofocus>
-                                
+
                                 @error('name')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -57,10 +57,10 @@
                         <div class="row">
                             <div class="form-outline mb-4">
                                 <label for="password-confirm" class="col-md-5 col-form-label text-md-right">{{ __('Conferma la Password') }}</label>
-                                
+
                                 <input required id="password-confirm" type="password" class="form-control" name="password_confirmation"   autocomplete="new-password">
                             </div>
-                        </div>  
+                        </div>
 
                         <div class="row justify-content-center">
                             <div class="col-3">
